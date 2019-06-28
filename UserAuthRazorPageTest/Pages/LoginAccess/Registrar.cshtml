@@ -1,0 +1,125 @@
+﻿@page
+@model UserAuthRazorPageTest.Pages.LoginAccess.RegistrarModel
+@{
+  ViewData["Title"] = "Registro de Usuario";
+}
+
+<div class="container">
+  <!-- FORMULARIO REGISTRO DE PERSONAS -->
+  <div class="row center">
+    <div class="col-md-12">
+      <form method="post">
+        <!-- SECCIÓN DE DATOS USUARIO Y CLAVE -->
+        <fieldset>
+          <legend>Nombre Usuario y Contraseña</legend>
+
+          <div class="row">
+            <!-- NOMBRE DE USUARIO -->
+            <div class="col-md-3">
+              <label class="control-label">
+                Nombre de Usuario:
+                <input asp-for="Usuario.UserName" type="text" class="form-control" />
+                <span asp-validation-for="Usuario.UserName" class="text-danger"></span>
+              </label>
+            </div>
+
+            <!-- CONTRASEÑA -->
+            <div class="col-md-3">
+              <label class="control-label">
+                Contraseña:
+                <input asp-for="Clave" type="password" class="form-control" />
+                <span asp-validation-for="Clave" class="text-danger"></span>
+              </label>
+            </div>
+          </div>
+        </fieldset>
+
+        <!--NOMBRES Y APELLIDOS-->
+        <fieldset>
+          <legend>Nombres y Apellidos </legend>
+
+          <div class="row">
+            <!-- PRIMER NOMBRE -->
+            <div class="col-md-3">
+              <label class="control-label">
+                Primer Nombre:
+                <input asp-for="Usuario.Nombre" type="text" class="form-control" />
+                <span asp-validation-for="Usuario.Nombre" class="text-danger"></span>
+              </label>
+            </div>
+
+            <!-- SEGUNDO NOMBRE -->
+            <div class="col-md-3">
+              <label class="control-label">
+                Segundo Nombre (Opcional):
+                <input asp-for="Usuario.SegundoNombre" type="text" class="form-control" />
+                <span asp-validation-for="Usuario.SegundoNombre" class="text-danger"></span>
+              </label>
+            </div>
+
+            <!-- APELLIDO PATERNO -->
+            <div class="col-md-3">
+              <label class="control-label">
+                Apellido Paterno:
+                <input asp-for="Usuario.ApellidoPaterno" type="text" class="form-control" />
+                <span asp-validation-for="Usuario.ApellidoPaterno" class="text-danger"></span>
+              </label>
+            </div>
+
+            <!-- APELLIDO MATERNO -->
+            <div class="col-md-3">
+              <label class="control-label">
+                Apellido Materno:
+                <input asp-for="Usuario.ApellidoMaterno" type="text" class="form-control" />
+                <span asp-validation-for="Usuario.ApellidoMaterno" class="text-danger"></span>
+              </label>
+            </div>
+          </div>
+        </fieldset>
+
+        <!--GENERO Y FECHA DE NACIMIENTO-->
+        <fieldset>
+          <legend>Género, Fecha de Nacimiento y Empresa</legend>
+
+          <!-- GENERO Y FECHA NACIMIENTO -->
+          <div class="row">
+            <!-- GÉNERO -->
+            <div class="col-md-3">
+              <label class="control-label">
+                Género:
+                <select asp-for="Usuario.Genero" id="Genero" name="Genero" class="form-control">
+                  <option value="Masculino">Masculino</option>
+                  <option value="Femenino">Femenino</option>
+                  <option value="Otro">Otro</option>
+                </select>
+                <span asp-validation-for="Usuario.Genero" class="text-danger"></span>
+              </label>
+            </div>
+
+            <!-- FECHA DE NACIMIENTO -->
+            <div class="col-md-3">
+              <label class="control-label">
+                Fecha de Nacimiento:
+                <input asp-for="Usuario.FechaNacimiento" type="date" class="form-control" />
+                <span asp-validation-for="Usuario.FechaNacimiento" class="text-danger"></span>
+              </label>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- BOTÓN ENVIAR DATOS -->
+        <fieldset>
+          <legend>Guardar Datos</legend>
+
+          <div class="row">
+            <div class="col-md-12">
+              <label>
+                <input class="btn btn-primary" type="submit" value="Registrar" />
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>

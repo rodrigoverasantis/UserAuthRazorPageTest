@@ -1,0 +1,72 @@
+﻿@page
+@model UserAuthRazorPageTest.Pages.LoginAccess.IngresarModel
+@{
+  ViewData["Title"] = "Recuperar Contraseña";
+}
+
+<!-- FORMULARIO LOGIN -->
+<div class="row center">
+  <div class="col-md-12">
+    <form method="post">
+      <!-- SECCIÓN DE DATOS PERSONALES -->
+      <fieldset>
+        <legend>Inicio de Sesión</legend>
+
+        <div class="row">
+          <!-- NOMBRE DE USUARIO -->
+          <div class="col-md-3">
+            <label class="control-label">
+              Usuario:
+              <input asp-for="Usuario" type="text" class="form-control" />
+              <span asp-validation-for="Usuario" class="text-danger"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="row">
+          <!-- CONTRASEÑA DE USUARIO -->
+          <div class="col-md-3">
+            <label class="control-label">
+              Contraseña:
+              <input asp-for="Clave" type="password" class="form-control" />
+              <span asp-validation-for="Clave" class="text-danger"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="row">
+          <!-- CHECKBOX RECORDARME -->
+          <div class="col-md-3">
+            <label class="control-label">
+              Recordarme:
+              <input asp-for="Recordarme" type="checkbox" class="form-control" />
+            </label>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <label>
+              <input class="btn btn-primary" type="submit" value="Entrar" />
+            </label>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <label>
+              <p class="message">¿Olvidaste tu contraseña? <a href="../ForgotPassword/ForgotPassword">Recuperala</a></p>
+            </label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <label>
+              <p class="message">¿No tienes cuenta? <a href="../User/Create/Create">Registrarte</a></p>
+            </label>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>

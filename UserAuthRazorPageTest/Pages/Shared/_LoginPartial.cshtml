@@ -1,0 +1,26 @@
+@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<Domain.Usuario> SignInManager
+@inject UserManager<Domain.Usuario> UserManager
+
+@if (SignInManager.IsSignedIn(User)) {
+  <form asp-area="Identity" asp-page="/LoginAccess/Salir" method="post" id="logoutForm" class="navbar-right">
+    <ul class="nav navbar-nav navbar-right">
+      <li>
+        @{
+          var usuario = await UserManager.GetUserAsync(this.User);
+          var nombreCompleto = $"{usuario.Nombre} {usuario.ApellidoPaterno} {usuario.ApellidoMaterno[0]}.";
+        }
+        <a asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hola @nombreCompleto !</a>
+      </li>
+      <li>
+        <button type="submit" class="btn btn-link navbar-btn navbar-link">Salir</button>
+      </li>
+    </ul>
+  </form>
+} else {
+  <ul class="nav navbar-nav navbar-right">
+    <li><a asp-area="Identity" asp-page="/LoginAccess/Registrar">Registrarse</a></li>
+    <li><a asp-area="Identity" asp-page="/LoginAccess/Ingresar">Ingresar</a></li>
+  </ul>
+}
