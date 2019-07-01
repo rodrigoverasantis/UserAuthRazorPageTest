@@ -21,7 +21,7 @@ namespace UserAuthRazorPageTest.Pages.LoginAccess {
       await this.signManager.SignOutAsync();
       //_logger.LogInformation("User logged out.");
       //TODO: Log informativo
-      return RedirectToAction("Index","Home");
+      return Redirect("/Index");
     }
   }
 }

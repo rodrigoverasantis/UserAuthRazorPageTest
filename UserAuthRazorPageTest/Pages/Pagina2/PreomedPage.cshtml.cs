@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace UserAuthRazorPageTest.Pages.Pagina2 {
 
-  [Authorize]
+  [Authorize(Roles = "Usuario Externo")]
   public class PreomedPageModel:PageModel {
 
     public void OnGet() {

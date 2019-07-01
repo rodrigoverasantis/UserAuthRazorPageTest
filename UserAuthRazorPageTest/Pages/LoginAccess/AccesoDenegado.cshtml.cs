@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace UserAuthRazorPageTest.Pages.LoginAccess {
-  public class AccesoNoAutotizadoModel:PageModel {
+  public class AccesoDenegadoModel:PageModel {
 
     public void OnGet() {
 

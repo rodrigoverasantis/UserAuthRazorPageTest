@@ -30,7 +30,7 @@ namespace UserAuthRazorPageTest {
         options.MinimumSameSitePolicy = SameSiteMode.None;
       });
 
-      services.AddDbContext<ApplicationDbContext>(options => 
+      services.AddDbContext<ApplicationDbContext>(options =>
         options.UseSqlite("Data Source=userAuth.db"));
       services.AddIdentity<Usuario,IdentityRole>()
         .AddEntityFrameworkStores<ApplicationDbContext>()
@@ -56,7 +56,11 @@ namespace UserAuthRazorPageTest {
         options.User.RequireUniqueEmail = true;
       });
 
-      //services.ConfigureApplicationCookie(options => options.LoginPath = "/Account/LogIn");
+      //Redirecciona en caso de entrar a una página sin tener autorización
+      services.ConfigureApplicationCookie(options => {
+        options.LoginPath = "/LoginAccess/Ingresar";
+        options.AccessDeniedPath = "/LoginAccess/AccesoDenegado";
+      });
 
       services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
     }

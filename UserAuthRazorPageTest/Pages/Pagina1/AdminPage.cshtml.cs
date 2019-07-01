@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace UserAuthRazorPageTest.Pages.Pagina1 {
 
-  [Authorize]
+  [Authorize(Roles = "Administrador")]
   public class AdminPageModel:PageModel {
 
     public void OnGet() {

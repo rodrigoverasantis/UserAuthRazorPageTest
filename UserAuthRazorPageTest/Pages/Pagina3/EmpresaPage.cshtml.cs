@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace UserAuthRazorPageTest.Pages.Pagina3 {
 
-  [Authorize]
+  [Authorize(Roles = "Usuario Preomed")]
   public class EmpresaPageModel:PageModel {
 
     public void OnGet() {

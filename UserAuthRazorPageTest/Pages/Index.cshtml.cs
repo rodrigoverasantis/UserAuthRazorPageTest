@@ -11,10 +11,10 @@ using UserAuthRazorPageTest.Domain;
 namespace UserAuthRazorPageTest.Pages {
   public class IndexModel:PageModel {
 
-    private readonly UserManager<Usuario> _userManager;
+    private readonly SignInManager<Usuario> signManager;
 
-    public IndexModel(UserManager<Usuario> userManager) {
-      this._userManager = userManager;
+    public IndexModel(SignInManager<Usuario> _signManager) {
+      this.signManager = _signManager;
     }
 
     public async Task OnGetAsync() {
@@ -22,6 +22,16 @@ namespace UserAuthRazorPageTest.Pages {
       //if (a != null) {
       //  Debug.WriteLine(a.Nombre);
       //}
+    }
+
+    public async Task<ActionResult> OnPost() {
+      if (this.User != null) {
+        await this.signManager.SignOutAsync();
+        //_logger.LogInformation("User logged out.");
+        //TODO: Log informativo
+        return Redirect("/Index");
+      }
+      return Redirect("/Index");
     }
   }
 }
